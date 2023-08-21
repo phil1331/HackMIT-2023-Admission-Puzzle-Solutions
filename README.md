@@ -1,19 +1,18 @@
 # HackMIT 2023 Admission Puzzle
 ## Introduction
-HackMIT is an annual hackathon that takes place at Massachusetts Institute of Technology in Cambridge, Massachusetts in early fall. This year, 2023, one way to get automatically admitted was to solve a series of CTF-like admission puzzles and end up in the Top 50 of hackers. I managed to complete all of the puzzles and will try to assemble step-by-step approaches and solutions for people that want to have an understanding or a deeper understanding of that type of challenges in general and provide a complete walkthrough from the first time seeing the website to solving the last puzzle.
+HackMIT is an annual hackathon that takes place at Massachusetts Institute of Technology in Cambridge, Massachusetts in early fall. This year, 2023, one way to get automatically admitted was to collect points by solving CTF-like admission puzzles and finish in the Top 50 of hackers. I managed to complete all of the puzzles and will try to assemble step-by-step approaches and solutions for people that want to have an understanding or a deeper understanding of that type of challenges in general and provide a complete walkthrough from the first time seeing the website to solving the last puzzle.
 ## Format
 I will be presenting all the solutions in a specific format, which is supposed to represent a sped-up version of my train of thoughts while tackling the specific problem. There will be sections that dive in a little deeper, which can be skipped by pressing the [TL;DR](https://en.wikipedia.org/wiki/TL;DR) link. The problems that required code to be written additionally include a code branch.
 <details>
 <summary>Show Format</summary>
 
-1. **First glance**&emsp;The prompt, description, text or image that initiated the challenge.
-
-2. **First thoughts**&emsp;Here, I will explicate my intuition when I first faced the problem.
-
-3. **First steps**&emsp;Sometimes, the most difficult thing is to start. Here, I will show a way how to.
-
-4. **Implementation**&emsp;After those first steps, it should make sense or even seem simple. I will convert the previous thoughts and steps into a real program / apply them.
-5. **Conclusion**&emsp;I will briefly summarize what we have achieved and learnt.
+|     Step     |   Name     |      Description    |
+|   :--       |    :---    |     :--       |
+|      1    |   **First glance**      |     The prompt, description, text or image that initiated the challenge.  |
+|      2    |     **First thoughts**    |     Here, I will explicate my intuition when I first faced the problem.        |
+|      3    |     **First steps**    |      Sometimes, the most difficult thing is to start. Here, I will show a way how to.       |
+|      4    |     **Implementation**    |     After those first steps, it should make sense or even seem simple. I will convert the previous thoughts and steps into a real program / apply them.        |
+|      5    |     **Conclusion**    |     I will briefly summarize what we have achieved and learnt.        |
 </details>
 </br>
 
@@ -26,7 +25,7 @@ I will be presenting all the solutions in a specific format, which is supposed t
 ## Challenges
 ![hackmit](images/hackmitwebsite.png)
 
-The first interesting thing you will notice after having visited the endpoint is an interesting FAQ question which introduces the [entrance puzzle](/entrance_puzzle/). Solving this puzzle lead to an OpenAI themed command center which introduced following problems.
+The first interesting thing you will notice after having visited the endpoint is a dodgy-seeming FAQ question which introduces the [entrance puzzle](/entrance_puzzle/). Solving this puzzle led to a ChatGPT themed command center which introduced following problems.
 
 
 | Number   | Challenge                                                                       | Points |
@@ -45,8 +44,8 @@ The first interesting thing you will notice after having visited the endpoint is
 ![solved](images/solved.png)
 
 ## Conclusion
-Thank you to the developer team of HackMIT for the great puzzles. I hope you, dear reader, could take something with you, if you were looking for challenges like the above, for previous HackMIT admission puzzles or were just interested. Thank you for taking the time, see you later! :wave:
+Thank you to the developer team of HackMIT for those great puzzles. I hope you, dear reader, could take something with you, whether you were looking for challenges like the above, for previous HackMIT admission puzzles or were just interested. Thank you for taking the time, see you later! :wave:
 ## Issues
-Anything missing? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out. I am always there for you.
-## References
+Anything missing? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
+## See also
 HackMIT themselves made a [live-stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) containing an overview of some official solutions. I really recommend checking it out.
