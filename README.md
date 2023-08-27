@@ -25,7 +25,7 @@ I will be presenting all the solutions in a specific format, which is supposed t
 ## Challenges
 ![hackmit](images/hackmitwebsite.png)
 
-The first interesting thing you noticed after having visited the [endpoint](./videos/hackmit_main_page.mp4) is a dodgy-seeming FAQ question and a hidden link which introduce the [entrance puzzle](/entrance_puzzle/). Solving this puzzle led to a ChatGPT themed command center which consisted of following problems.
+The first interesting thing you noticed after having visited the [endpoint](./gifs/main_page.gif) is a dodgy-seeming FAQ question and a hidden link which introduce the [entrance puzzle](/entrance_puzzle/). Solving this puzzle led to a ChatGPT themed command center which consisted of following problems.
 
 
 | Number   | Challenge                                                                       | Points |
