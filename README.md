@@ -1,8 +1,8 @@
 # HackMIT 2023 Admission Puzzle
 ## Introduction
-HackMIT is an annual hackathon that takes place at Massachusetts Institute of Technology in Cambridge, Massachusetts in early fall. This year, 2023, one way to get automatically admitted was to collect points by solving CTF-like admission puzzles and finish in the Top 50 of hackers. I managed to complete all of the puzzles and will try to assemble step-by-step approaches and solutions for people that want to have an understanding or a deeper understanding of that type of challenges in general and provide a complete walkthrough from the first time seeing the website to solving the last puzzle.
+HackMIT is an annual hackathon that takes place at Massachusetts Institute of Technology in Cambridge, Massachusetts in early fall. This year, 2023, one way to get automatically admitted was to collect points by *individually* solving CTF-like admission puzzles and finish in the Top 50 of hackers. I managed to complete all of the puzzles and will try to assemble step-by-step approaches and solutions for people that want to have an understanding or a deeper understanding of that type of challenges in general and provide a complete walkthrough from the first time seeing the website to solving the last puzzle.
 ## Format
-I will be presenting all the solutions in a specific format, which is supposed to represent a sped-up version of my train of thoughts while tackling the specific problem. There will be sections that dive in a little deeper, which can be skipped by pressing the [TL;DR](https://en.wikipedia.org/wiki/TL;DR) link. The problems that required code to be written additionally include a code branch.
+I will be presenting all the solutions in a specific format, which is supposed to represent a sped-up version of my train of thoughts while tackling the specific problem. There will be sections that dive in a little deeper, which can be skipped by pressing the [TL;DR](https://en.wikipedia.org/wiki/TL;DR) link. The problems that required code to be written additionally include a code branch. I will be embedding tips or recommendations which are supposed to prevent possible mistakes, difficulties or unnecessary excessive time-consumption while working on the respective problem.
 <details>
 <summary>Show Format</summary>
 
@@ -25,7 +25,7 @@ I will be presenting all the solutions in a specific format, which is supposed t
 ## Challenges
 ![hackmit](images/hackmitwebsite.png)
 
-The first interesting thing you will notice after having visited the endpoint is a dodgy-seeming FAQ question which introduces the [entrance puzzle](/entrance_puzzle/). Solving this puzzle led to a ChatGPT themed command center which introduced following problems.
+The first interesting thing you noticed after having visited the [endpoint](./videos/hackmit_main_page.mp4) is a dodgy-seeming FAQ question and a hidden link which introduce the [entrance puzzle](/entrance_puzzle/). Solving this puzzle led to a ChatGPT themed command center which consisted of following problems.
 
 
 | Number   | Challenge                                                                       | Points |
@@ -41,6 +41,7 @@ The first interesting thing you will notice after having visited the endpoint is
 > **Note**
 > Even though I recommend walking through the problems in the order I provided them, this is not necessary as they all are independent from each other.
 
+## The End
 ![solved](images/solved.png)
 
 ## Conclusion
@@ -48,4 +49,4 @@ Thank you to the developer team of HackMIT for those great puzzles. I hope you, 
 ## Issues
 Anything missing? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
 ## See also
-HackMIT themselves made a [live-stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) containing an overview of some official solutions. I really recommend checking it out.
+HackMIT themselves made a [live-stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) containing an overview of their official solutions. I really recommend checking it out.
