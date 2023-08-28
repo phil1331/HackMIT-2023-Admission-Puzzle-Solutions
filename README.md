@@ -34,7 +34,7 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 
 | Number   | Challenge                                                                       | Points |
 | :-----   | :----------------                                                               | -----: |
-|    1     | [Gaslight](/bakery/) – Convincing an LLM (Social Engineering)                   |  750   |
+|    1     | [Gaslight](/gaslight/) – Convincing an LLM (Social Engineering)                   |  750   |
 |    2     | [Xd](/Xd/) – Finding your way in a number cluster                               |  1000  |
 |    3     | [Hackvm](/hackvm/) – RISC-V32 & x86_64 ELF Reversing (memcmp vulnerability)     |  1550  |
 |    4     | [Bakery](/bakery/) – Web-App file upload vulnerability                          |  1700  |
