@@ -162,7 +162,6 @@ s.add(pwBVs[0xb] ^ pwBVs[0xd] == 0x14)
 
 # Solved it first without the while loop and the notConditions
 # Wanted to check whether there might be some more "easter egg solutions"
-# 
 while s.check() == sat:
     m = s.model()
     foundPassword = ""

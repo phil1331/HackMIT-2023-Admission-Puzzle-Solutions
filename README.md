@@ -34,7 +34,7 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 
 | Number   | Challenge                                                                       | Points |
 | :-----   | :----------------                                                               | -----: |
-|    1     | [Gaslight](/gaslight/) – Convincing an LLM (Social Engineering)                   |  750   |
+|    1     | [Gaslight](/gaslight/) – Convincing an LLM (Social Engineering)                 |  750   |
 |    2     | [Xd](/Xd/) – Finding your way in a number cluster                               |  1000  |
 |    3     | [Hackvm](/hackvm/) – RISC-V32 & x86_64 ELF Reversing (memcmp vulnerability)     |  1550  |
 |    4     | [Bakery](/bakery/) – Web-App file upload vulnerability                          |  1700  |
@@ -55,7 +55,11 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 Thank you to the developer team of HackMIT for those great puzzles. I hope you, dear reader, could take something with you, whether you were looking for challenges like the above, for previous HackMIT admission puzzles or were just interested. Thank you for taking the time, see you later! :wave:
 ## Issues
 
-Anything missing? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
+Anything missing? Typos? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
 ## See also
 
-HackMIT themselves made a [live-stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) containing an overview of their official solutions. I really recommend checking it out.
+[Official HackMIT solutions live stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) – I really recommend checking it out.
+
+## License
+
+MIT License
