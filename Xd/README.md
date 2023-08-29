@@ -1,8 +1,8 @@
 # Xd – Finding the right path in an $n$-dimensional folder cluster with holes (DFS + Backtracking)
 ## First glance
-![Xd](./../images/Xd.png)
-![Xd_welcome](./../images/Xd_welcome.png)
-A terminal  ! We can deal with that.
+![Xd](./../images/Xd.png) </br>
+![Xd_welcome](./../images/Xd_welcome.png) </br>
+A terminal! We can deal with that.
 ## First thoughts
 
 The page in the upper pictures has the style of a terminal often used in Unix-Based-Environments. Let's try some basic commands such as `ls` and see where we are getting!
@@ -14,18 +14,20 @@ The page in the upper pictures has the style of a terminal often used in Unix-Ba
 |pwd|Print current working directory (current directory)|
 |cd '_DIR_NAME'|set current directory to _DIR_NAME|
 |cat '_FILE'|print out contents of _FILE|
+|ls '_PATH_NAME'|list files in _PATH_NAME|
+|when _DIR_NAME or _PATH_NAME are equal to '..'|Apply action to *previous* directory|
 </details> </br>
 
-![Xd_first_steps](./../images/Xd_first_steps.png)
+![Xd_first_steps](./../images/Xd_first_steps.png) </br>
 Interesting.
-![part1&part2](./../images/part1&part2.png)
+![part1&part2](./../images/part1&part2.png) </br>
 Apparently the puzzle is divided into two parts, part1 and part2. We can already assume that part2 will be harder than part1 and both depend on each other. Let's take a look at part1 first.
-![readme1](./../images/readme1.png)
+![readme1](./../images/readme1.png) </br>
 Oh, so part1 consists of a file called [`README1`](./logs/README1.txt) and of a directory called `puzzle`. The `README1` consists of a sequence of sorted numbers. Let's keep that in mind and explore the puzzle directory.
-![first_folders](./../images/first_folders.png)
-So, the folders after you entered the puzzle directory are named by numbers. When we keep traversing, we pretty soon come to the following point.
+![first_folders](./../images/first_folders.png) </br>
+So, the folders are named by numbers. When we keep traversing, we soon come to the following point.
 ![2folders](./../images/2folders.png)
-Oh no, now suddenly there are 2 folders to choose from (little spoiler: there will be many more choices where we can choose from up to 3 possibilities). Looks like a chall where we have to find patterns to find the right path in this cluster of folders. Let's examine the sequence of numbers of the folders we got before the numbers that split.
+Oh no, now suddenly there are 2 folders to choose from (little spoiler: there will be many more choices where we can choose from up to 3 possibilities). Looks like a chall where we have to find patterns to find the right path in this cluster of folders. Let's examing the first folders in our sequence.
 ```
 1 2 3 34 65 64 63 94 125 156 187 218 249 250 251
 ```
@@ -45,8 +47,7 @@ While the first three numbers are the same, after that the folder numbers seem t
 Normal numbers: 1 2 3 34 65 64 63 94 125 156 187 218 249 250 251
 Distances:       1 1 31 31 -1 -1 31 31 31  31  31  31   1   1
 ```
-Not bad. Seems as though the absolute value between the numbers is always (at least for the first numbers) equal either to 1 or to 31. From this point what you would do is, first, keep exploring (traversing through the folder cluster). You will notice following rules for the numbers: </br>
-For all numbers that appeared in our explored folders, the following is true:
+Not bad. Seems as though the absolute value between the numbers is always (at least for the first numbers) equal to either 1 or 31. From that point, what you would do is, first, keep exploring (traversing through the folder cluster). You will notice following rules applied at all times for the numbers:
 ### Rules
 1. They always are contained in the `README1` sequence.
 2. The distances between two consecutive numbers are either 1, -1, 31 or -31.
@@ -64,11 +65,11 @@ Note that rules 1,2 & 3 describe a special application of [DFS (Depth-First-Sear
 4. We add each distance twice and thus rule out invalid solutions (Rule 3).
 5. If any of the next numbers aren't contained in the `README1` and not 961, we return. If all of the next numbers aren't contained in the `README1` and not 961, we [backtrack](https://en.wikipedia.org/wiki/Backtracking). That means that we're dumping this path because it doesn't lead to the end and using our previous found paths to find actually valid paths.
 6. If we arrive at 961, print the path that led to the solution.
-#### Analogy Backtracking
+### Analogy Backtracking
 Imagine you are trying to find a way out in a labyrinth. When all of the paths you checked close to you led to a dead end, what do you do? Aborting everything and going all the way to the start and trying it completely again from scratch? No, that would be inefficient, right? You are dumping those paths and checking the closest path to you that you didn't check yet and repeating the same process again. That exactly is backtracking.</br>
 
 You can try to implement this yourself, the abstract concept of backtracking can just be added by removing nodes (`README1` numbers) that you aren't dealing with anymore after you recursively searched (DFS) for solutions, with an origin of that to-be-removed number (and by returning after to the previous number / the previous stack frame).
-#### The algorithm
+### The algorithm
 In my java algorithm I use sets to keep track of the README1 numbers, because the time complexity read & write operations is O(1) (it's super fast). I also use a set for my already visited numbers which is a linked set because I that is what preserves the actual order of the numbers which I need for the printing part after having found the solutions (normal HashSets don't do that; operations are still of the same complexity). First, I am reading the file:
 ```java
 // Reading file README1.txt
@@ -119,7 +120,7 @@ if (repeatDistance != 0) {
     solveProblem(currentNum - 31, numbers, visited, -31);
 }
 ```
-After we're done checking all the possibilites with origin of the `currentNum` in the current recursive call, we remove `currentNum` from the visited numbers, i.e. we backtrack, remove the starting node of definitely invalid paths from the result, and search through recent paths that we haven't ruled out yet. 
+After we're done checking all the possibilites with origin of the `currentNum` in the current recursive call, we remove `currentNum` from the visited numbers, i.e. we backtrack, remove the starting node of already visited paths from the result, and search through recent paths that we haven't searched yet. 
 ```java
 visited.remove(currentNum);
 ```
@@ -131,18 +132,24 @@ You can find the whole script [here](./code/Solution1.java). When we execute it 
 ![found_Xd](./../images/found_Xd.png)
 Great! Only one solution. Let's navigate to the puzzle folder and try pasting it.
 ![firstflag_xd](./../images/firstflag_xd.png)
-Nice! Let's check our java script console through browser tools.
-![first_flag](./../images/first_flag.png)
+Nice! Let's check our java script console through browser tools. </br>
+![first_flag](./../images/first_flag.png)</br>
 Great. The first 32 hex digits of the puzzle flag. Don't fear `part2`! We already did most of the work.
+
 > **Note**
 > Part1 was supposed to be feasible completely without developing algorithms, but it'd take a minute+the time the terminal emulator needs to load for each `ls` to find the flag.
-#### Part2
-![part2](./../images/part2.png)
-Part2 also consists of a README which is called [`README2`](./logs/README2.txt) this time and a puzzle folder. The `README2` contains many more values than our `README1` and when traversing through the folder you might notice nodes with many more path possibilities than we had before (up to 19 other possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 of the first part are still valid, just with the `README1` values exchanged with the `README2` values. This time the distances between the folder sequence numbers are $\pm$ powers of 5. The greatest number in the `README2` is $9765625 = 5^{10}$ and the smallest number being 1. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definietely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 or -31 and a goal of again the largest number in our `README2`, 9765625. </br>
+
+### Part 2
+---
+
+![part2](./../images/part2.png) </br>
+
+Part2 consists of a [`README2`](./logs/README2.txt) and a puzzle folder. The `README2` contains many more values than our `README1` and when traversing through the folders you might notice nodes with many more folder possibilities than we had before (up to 19 possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 are still valid, just with the `README1` values exchanged with the `README2` values. This time the distances between the folder sequence numbers are $\pm$ powers of 5. The greatest number in the `README2` is $9765625 = 5^{10}$ and the smallest number being 1. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definietely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 or -31 and a goal of again the largest number in our `README2`, 9765625. </br>
 That means we can again use our algorithm, just with a modified README, modified distances and a modified goal number!! You can try modifying [it](./code/Solution1.java) yourself, or just click [here](./code/Solution2.java) to get to the modified algorithm.
 > **Important**
-> I copy-pasted the `Solution1.java` file and did some minor modifications. This is bad (*worst*) pratice, don't do this at home.
+> I copy-pasted the `Solution1.java` file and did some minor modifications. This is bad (*worst*) practice, don't do this at home.
 <details><summary>Open-Closed Principle</summary>
+
 We could have used the [Open-Closed Principle (OCP)](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) here, which would end up making the code max. pretty and us not having to modify the solveProblem method at all, for different rule 2 modifications. I didn't do that as this is out of the scope of these puzzles and might be waste of time for temporary files.
 </details> </br>
 
@@ -150,12 +157,12 @@ We get following output.
 ![part2_solved](./../images/part2_solved.png)
 Great, again just one solution and when we paste this into our terminal emulator after having entered the puzzle directory:
 ![endpart2](./../images/endpart2.png)
-Taking a look at our js console again:
-![flagpart2](./../images/flagpart2.png)
+Taking a look at our js console again: </br>
+![flagpart2](./../images/flagpart2.png) </br>
 Great, we are done! We can concatenate the two flags now and submit them to the command center!
 > **Note**
-> This whole folder cluster can also be visually perceived as an $n$ dimensional cluster of natural numbers with a few missing in between.
+> This whole folder cluster can also be visually perceived as an n dimensional cluster of natural numbers with a few missing in between.
 > The first part is a 2-dimensional 31 by 31 plane, where a few nodes are missing. Try to imagine. It basically is a labyrinth!
-> The second part is a 10-dimensional 5 by 5 by 5 by ... by 5 object with missing nodes. Imagining this is hard, but the previous concepts still work.
+> The second part is a 10-dimensional 5 by 5 by 5 by ... by 5 object with missing nodes. Imagining this is hard, but the previous concepts still work with it.
 ## Conclusion
-We learned how to approach number-sequence puzzles where there are no instructions at all. We learned about the path-traversal algorithm DFS and the more advanced concept of backtracking which isn't as hard to implement as it seems at first! We learned that hard problems depend most times on easier problems and can be solved using these easier problems. In the end, we learned that not all components of a puzzle have to be understood to solve it, but may definitely be helpful. I hope you could take something away, and remember that most puzzles are just exploration mixed with thinking! The more exploration is done, the more next steps make sense. See you at the [next puzzle](./../hackvm/)!
+We learned how to approach number-sequence puzzles where there are no instructions at all. We learned about the path-traversal algorithm DFS and the more advanced concept of backtracking which isn't as hard to implement as it seems at first! We learned that hard problems depend most times on easier problems and can be solved using these easier problems. In the end, we learned that not all components of a puzzle have to be understood to solve it, but may definitely be helpful. I hope you could take something away, and remember that the part that seems to be the hardest of puzzles is just exploration mixed with thinking! The more you explore the intricacies of the respective puzzles, the more steps make sense. See you at the [next puzzle](./../hackvm/)!

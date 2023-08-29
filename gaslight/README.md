@@ -7,7 +7,6 @@
 After you got your API key you could start and were redirected to following chat with Nate.
 ![gaslight_chat](./../images/gaslight_chat.png)
 ## First thoughts
-s
 This puzzle required absolutely nothing except creativity. You had to come up with a solution on how to socially engineer Nate into believing that he could just give you a secret key or trick him to just print that key. Additionally, you had limited chat possibilites as he would leave for SnackMIT after a specific threshold of your messages has been reached and 100 as a maximum word count per message. ![nate_snack_mit](./../images/nate_snack_mit.png) My first thoughts were to just try out some diverse things which eventually worked.
 ## First steps
 
@@ -17,10 +16,10 @@ After trying out different approaches, some paths I took led to more or less suc
 ## Implementation
 
 Though, I kept extending elements of those pseudo-successful tries and when I added some emotional aspects in combination with a story where I lost my *own* secret key I finally got to the prompt I wanted to get. Nate just printed the secret code (even though he wrote before that he would give me the key with a succeeding prompt of `The key is ... Nahh, scratch that.`). The secret code made up the flag (a 64 hex digit string) that you could submit to the command center to receive your 750 points. Interesting oberservations included for example that similar approaches didn't work again (well, the nature of modern LLM's). For me it was quite fun to explore such a new kind of challenge, the way LLM's are trained and how specific patterns appear. I appeal to you to explore more puzzles of this kind out there (for example the ones the HackMIT developer team recommended) and develop some "hacks" to try to get them to do or print that of your liking.
-> *Note*
+> **Note**
 > For this puzzle specifically, I recommend checking out the [live-stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) of the HackMIT developer team as they feature quite creative solutions of others.
 
-> *Note*
+> **Note**
 > There are shortcuts, such as publicly available GPT-Hacks or -Jailbreaks such as DAN. Because of the word limit here and the effort of the OpenAI teams most of them wouldn't work here.
 ## Conclusion
 
