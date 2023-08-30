@@ -177,5 +177,8 @@ hack{5olv1ng_sy5t3ms_of_c0n5tra1nt5_f0r_fun_4nd_pr0f1t_08111996}
 ![finished_vmhack](./../images/finished_vmhack.png)
 > **Note**
 > I could have done all of that in one python script. While I was working on the problem my problems was that I switched between my Kali Linux vm and my actual home environment for many times and ended up building different scripts on different environments and in different languages. Quite of a chaos.
+
+> **Note**
+> I recommend checking the [pwntools](https://docs.pwntools.com/en/stable/) framework out. It facilitates many processes in the domain of Pen-Testing and especially in RE.
 ## Conclusion
 We learned about RISC-V32 ELF executables, how to disassemble them with the riscv32 toolchain, some basics about how they are written in Assembly and how self-generating code might be implemented. We learned how to carefully analyze executables, about XOR-Encryption, Ghidra, how to automate instruction-reading for many different architectures in python with capstone, solving systems of constraints in python with z3, about things, such as little endian and its popularity nowadays and code segments such as .text and unnatural ones, such as the .crypto section here. This was the hardest puzzle of HackMIT 2023, congratulations!

@@ -1,4 +1,4 @@
-# Bakery – Stored XSS (special kind of image) file uploading vulnerability
+# Bakery – Stored XSS in image (file uploading vulnerability)
 ## First glance
 ![bakery](./../images/bakery.png)
 ![bakery_place_order](./../images/bakery_place_order.png)

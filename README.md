@@ -55,7 +55,7 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 Thank you to the developer team of HackMIT for those great puzzles. I hope you, dear reader, could take something with you, whether you were looking for challenges like the above, for previous HackMIT admission puzzles or were just interested. Thank you for taking the time, see you later! :wave:
 ## Issues
 
-Anything missing? Typos? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
+Anything missing? Typos? Enhancement ideas? Something you want me to explain more meticulously? Not happy? Just let me know, feel free to join the discussion, submit an issue or reach out.
 ## See also
 
 [Official HackMIT solutions live stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) – I really recommend checking it out.

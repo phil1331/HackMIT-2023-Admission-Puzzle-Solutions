@@ -65,5 +65,8 @@ We cracked the password! We can now enter this into our hackvm binary and will g
 All in all a funny challenge.
 > **Note**
 > Raw timing of the memcmp function would have been a possibility, too. Because of the whole OS noise though, this would require many more steps.
+
+> **Note**
+> I recommend checking the [pwntools](https://docs.pwntools.com/en/stable/) framework out. It facilitates many processes in the domain of Pen-Testing and especially in RE.
 ## Conclusion
 We learned about how to approach reverse-engineering programs, by using a tool such as Ghidra, reading Assembly with objdump or gdb or modifying values in memory with gdb and how to automate basic side channel leakage address call monitoring with gdblib in python. Tackle the [next puzzle](./../bakery/). Visit [vmhack](./../vmhack/), a similar but harder reverse engineering puzzle.
