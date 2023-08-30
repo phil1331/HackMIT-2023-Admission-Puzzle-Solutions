@@ -17,7 +17,6 @@ I will be presenting all the solutions in a specific format, which is supposed t
 |      4    |     **Implementation**    |     After those first steps, it should make sense or even seem simple. I will convert the previous thoughts and steps into a real program / apply them.        |
 |      5    |     **Conclusion**    |     I will briefly summarize what we have achieved and learnt.        |
 </details>
-</br>
 
 > **Important**
 > Note that I didn't specify any prerequisites. I will indeed try to make the approach clear, regardless of the person reading this.

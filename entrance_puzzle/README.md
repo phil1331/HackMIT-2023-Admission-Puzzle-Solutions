@@ -1,10 +1,11 @@
 # The Entrance Puzzle – Decoding "woof-encoded" binary ASCII-codepoints
 ## First glance
+
 ![FAQ_question](./../images/admission_puzzle_faq.png)
 The first thing I noticed when taking a look onto the main page was this interesting FAQ-question. 
 ## First thoughts
-The first steps were individual, what I directly saw were the letter-groups of 8. Well, assuming that a secret message is trying to be conveyed here, is there some way how letters could be represented using this format, a constant size separation by spaces where the separated words just differ by their letter case? Maybe some way how computers encode characters? Might each letter case represent a 0 and a 1 aka a bit? How can 8 bits be converted to a character or what character encoding uses 8 bits? At this point you might just know the answer or do some quick research. The short answer is [latin1 / ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) or [ASCII](https://en.wikipedia.org/wiki/ASCII) as a 7-bit encoding. <details markdown="1"><summary>Long answer</summary> </br>
-In general there are many character encodings out there that map basic characters to one byte. ASCII (American Standard Code for Information Interchange) is one of the oldest and one of the most popular character encodings. It uses a lookup-table to map numbers (code points) to characters. The [hex](https://en.wikipedia.org/wiki/Hexadecimal) code point range 0x30 – 0x39 represents for example the numbers 0-9 and the ranges 0x41-0x60 and 0x61-0x80 represent the character ranges A-Z and a-z, respectively. It is indeed useful to memorize those ranges(easier to memorize in hex than in the decimal system) to write applications that do some sophisticated character comparison, concatenation, generation or whatever you can think of. Try to write a random alphanumerical character string generator, of length n (for example `'aI279Ah2K8sekQsB2'` might be a valid output string where n = 17). In programming languages, you are able to cast (convert) those code points directly into characters. For example, converting the 0x41 ASCII-Codepoint into `'A'`: </br>
+The first steps were individual, what I directly saw were the letter-groups of size 8. Well, assuming that a secret message is trying to be conveyed here, is there some way how letters could be represented using this format, a constant size separation by spaces where the separated words just differ by their letter case? Maybe some way how computers encode characters? Might each letter case represent a 0 and a 1 aka a bit? How can 8 bits be converted to a character or what character encoding uses 8 bits? At this point you might just know the answer or do some quick research. The short answer is [latin1 / ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) or [ASCII](https://en.wikipedia.org/wiki/ASCII) as a 7-bit encoding. <details markdown="1"><summary>Long answer</summary> </br>
+In general there are many character encodings out there that map basic characters to one byte. ASCII (American Standard Code for Information Interchange) is one of the oldest and one of the most popular character encodings. It uses a lookup-table to map integers (code points) to characters. The [hex](https://en.wikipedia.org/wiki/Hexadecimal) code point range 0x30-0x39 represents for example the numbers 0-9 and the ranges 0x41-0x60 and 0x61-0x80 represent the character ranges A-Z and a-z, respectively. It is indeed useful to memorize those ranges(easier to memorize in hex than in the decimal system) to write applications that do some sophisticated character comparison, concatenation, generation or whatever you can think of. Try to write a random alphanumerical character string generator, of length n (for example `'aI279Ah2K8sekQsB2'` might be a valid output string where n = 17). In programming languages, you are able to cast (convert) those code points directly into characters. For example, converting the 0x41 ASCII-Codepoint into `'A'`: </br>
 
 Java or C#
 ```java
@@ -33,12 +34,12 @@ char c = 0x41;
 Languages that don't allow arbitrary conversion of types are called type-safe languages. Java as a type-safe language still allows implicit conversions, for example `float f = 2;`, where an integer gets implicitly converted to a float. On the other hand, the float-integer conversion relation isn't mutual in Java, you cannot do following: ~~`int i = 2.3;`~~ </br>
 <details><summary>Even more</summary></br>
 
-The ASCII encoding generally uses all code points from 0-127, all in all 128 or $2^7$ code points, that means they can be represented using 7 bits, even though, because types are 8-bit aligned in general (nowadays), programming languages use 8 bits to represent an ASCII-character (or even more, but that is out of the scope of this Write-Up). ISO-8859-1 or also sometimes referred to as latin1 offers support for some more characters, including accented characters and [umlauts](https://en.wikipedia.org/wiki/Umlaut_(diacritic)). Most programming languages nowadays support modern Unicode Transformation Formats (UTF) such as UTF-16 that support a much wider range of characters that have to be represented using multiple bytes. Encodings are called ASCII-compatible if the first 128 codepoint-mappings (first characters sorted by codepoint value) of the respective encoding are identical to the ASCII-codepoint-mappings. New versions of modern programming languages also at most times include a variable-width encoding, which saves space by storing sets of characters (that have a specific relation) with the smallest possible byte-per-character count of the character with the highest codepoint.
-</details></details> </br>
+The ASCII encoding generally uses all code points from 0-127, all in all 128 or $2^7$ code points, that means they can be represented using 7 bits, even though, because types are 8-bit aligned in general (nowadays), programming languages use 8 bits to represent an ASCII-character (or even more, but that is out of the scope of this Write-Up). ISO-8859-1 or also sometimes referred to as latin1 offers support for some more characters, including accented characters and [umlauts](https://en.wikipedia.org/wiki/Umlaut_(diacritic)). Most programming languages nowadays support modern Unicode Transformation Formats (UTF) such as UTF-16 that support a much wider range of characters and have to be represented using multiple bytes. Encodings are called ASCII-compatible if the first 128 codepoint-mappings (first characters sorted by codepoint value) of the respective encoding are identical to the ASCII-codepoint-mappings. New versions of modern programming languages also at most times include a variable-width encoding, which saves space by storing sets of characters (that have a specific relation) with the smallest possible byte-per-character count of the character with the highest codepoint.
+</details></details>
 
 ## First steps
 
-Intuitively lowercase characters represent zeros and uppercase characters represent ones. That means a letter composition such as `wOOfwooF` is translated to `01100001`. You can just use a programming language to convert this bit composition to a character or an ASCII-Table. For example, a oneliner in python:
+Intuitively lowercase characters represent zeros and uppercase characters represent ones. That means a letter composition such as `wOOfwooF` is translated to `01100001`. You can just use a programming language or an ASCII-Table to convert this bit composition to a character. For example, a oneliner in python:
 ```python
 print(chr(0b01100001))
 ```
@@ -76,7 +77,9 @@ Note that I logged in as a guest as I already completed the puzzles on my github
 
 ---
 Once you start chatting with HackXGPT you'll come to notice something.
+
 ![chat](./../images/chat.png)
+
 Aren't those our woof-encoded ASCII-characters?! We already know how to decode this. 
 ## Implementation
 
