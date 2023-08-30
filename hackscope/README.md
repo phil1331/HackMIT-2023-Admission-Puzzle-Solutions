@@ -145,4 +145,4 @@ Output:
 ```
 Nice, we made it! That's the flag you can submit to the command center for this puzzle. 
 ## Conclusion
-We learned how to approach Web-App-Challenges, about burp and how to work with it on a basic level, authentication- and authorization-methods, JSON-Web-Tokens, its components and format, public and private keys and their relation to and job for JWT's, services such as `transfer.sh`, Base64, JWT authentication bypass exploits, proxies, SSRF and lastly about *patience*. If you'd like, you can visit the [next puzzle](./../vmhack/).
+We learned how to approach Web-App-Challenges, about burp and how to work with it on a basic level, authentication- and authorization-methods, JSON-Web-Tokens, its components and format, public and private keys and their relation to and job for JWT's, services such as transfer.sh, Base64, JWT authentication bypass exploits, proxies, SSRF and lastly about *patience*. If you like, you can visit the [next puzzle](./../vmhack/).

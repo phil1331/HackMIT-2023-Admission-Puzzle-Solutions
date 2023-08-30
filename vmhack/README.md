@@ -167,7 +167,7 @@ Length: 64
 Matches: regex /hack{[A-Za-z0-9_]+}/
 Constraints: execute vmhack.py to see more
 ```
-You'll find a commented script [here](./code/z3vmhacksolve.py). (Remember that you will have to manually install z3 from their github repository for it to run on your computer!!) Let's run it with `python z3vmhacksolve.py`... </br>
+You'll find a script with some comments [here](./code/z3vmhacksolve.py). (Note that you will have to manually install z3 from their github repository for it to run on your computer!!) Let's run it with `python z3vmhacksolve.py`... </br>
 ```
 Output:
 
