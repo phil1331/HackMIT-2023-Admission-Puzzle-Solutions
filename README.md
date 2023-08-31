@@ -7,7 +7,7 @@ HackMIT is an annual hackathon that takes place at Massachusetts Institute of Te
 
 I will be presenting all the solutions in a specific format, which is supposed to represent a sped-up version of my train of thoughts while tackling the specific problem. There will be sections that dive in a little deeper, which you can unfold. The problems that required code to be written additionally include a code branch. I will be embedding tips or recommendations which are supposed to prevent possible mistakes, difficulties or unnecessary excessive time-consumption while working on the respective problem. For some problems, I will add a logs folder that contains text that'd be too long to be put onto the explication.
 <details>
-<summary>Show Format</summary>
+<summary>Show Format</summary></br>
 
 |     Step     |   Name     |      Description    |
 |   :--       |    :---    |     :--       |

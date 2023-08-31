@@ -1,15 +1,15 @@
 # Xd – Finding the right path in an n-dimensional folder cluster with holes (DFS + Backtracking)
 ## First glance
 
-![Xd](./../images/Xd.png) </br>
+![Xd](./../images/Xd.png)
 
-![Xd_welcome](./../images/Xd_welcome.png) </br>
+![Xd_welcome](./../images/Xd_welcome.png)
 
 A terminal! We can deal with that.
 ## First thoughts
 
 The page in the upper pictures has the style of a terminal often used in Unix-Based-Environments. Let's try some basic commands such as `ls` and see where we are getting!
-<details><summary>Show basic linux commands for this challenge</summary>
+<details><summary>Show basic linux commands for this challenge</summary></br>
 
 |Command name|Function|
 |:--|--:|
@@ -36,6 +36,7 @@ Oh, so part1 consists of a file called [`README1`](./logs/README1.txt) and of a 
 ![first_folders](./../images/first_folders.png)
 
 So, the folders are named by numbers. When we keep traversing, we soon come to the following point.
+
 ![2folders](./../images/2folders.png)
 Oh no, now suddenly there are 2 folders to choose from (little spoiler: there will be many more choices where we can choose from up to 3 possibilities). Looks like a chall where we have to find patterns to find the right path in this cluster of folders. Let's examine the first folder names in our sequence.
 ```
@@ -77,7 +78,7 @@ Note that rules 1,2 & 3 describe a special application of [DFS (Depth-First-Sear
 6. If we arrive at 961, print the path that led to the solution.
 ### Analogy Backtracking
 
-Imagine you are trying to find a way out in a labyrinth. When all of the paths you checked close to you led to a dead end, what do you do? Aborting everything and going all the way to the start and trying it completely again from scratch? No, that would be inefficient, right? You are dumping those paths and checking the closest path to you that you didn't check yet and repeating the same process again. That exactly is backtracking.</br>
+Imagine you are trying to find a way out in a labyrinth. When all of the paths you checked close to you led to a dead end, what do you do? Aborting everything and going all the way to the start and trying it completely again from scratch? No, that would be inefficient, right? You are dumping those paths and checking the closest path to you that you didn't check yet and repeating the same process again. That exactly is backtracking.
 
 You can try to implement this yourself, the abstract concept of backtracking can just be added to the application logic by removing nodes (`README1` numbers) that you aren't dealing with anymore after you recursively searched (DFS) for solutions, with an origin of that to-be-removed node (and by returning after to the previous number / the previous stack frame).
 ### The algorithm
@@ -122,7 +123,9 @@ if (currentNum == 961) {
     return;
 }
 ```
-Now the main part. We use `repeatDistance` to check whether we have to repeat the distance from the previous number. If it actually is the case, then `repeatDistance` is not equal to zero. Then, we just call `solveProblem` recursively again with the next number being the to-be-repeated-distance added to the current number and a `repeatDistance` value for the next call of 0, meaning we don't repeat again in the next call after having just repeated. </br> If the current distance is not to be repeated (meaning `repeatDistance` == 0), then we check all valid numbers around us, i.e. numbers with differences to the current number of 1, -1, 31 or -31 (rule 2). We additionally pass a repeatDistance of the distance we just added to the respective number, because we want to repeat (rule 3) each distance.
+Now the main part. We use `repeatDistance` to check whether we have to repeat the distance from the previous number. If it actually is the case, then `repeatDistance` is not equal to zero. Then, we just call `solveProblem` recursively again with the next number being the to-be-repeated-distance added to the current number and a `repeatDistance` value for the next call of 0, meaning we don't repeat again in the next call after having just repeated. 
+
+If the current distance is not to be repeated (meaning `repeatDistance` == 0), then we check all valid numbers around us, i.e. numbers with differences to the current number of 1, -1, 31 or -31 (rule 2). We additionally pass a repeatDistance of the distance we just added to the respective number, because we want to repeat (rule 3) each distance.
 ```java
 if (repeatDistance != 0) {
     // if the previous distance was a non-repeated distance or there was no distance before, repeat the previous distance again (rule 3)
@@ -143,7 +146,7 @@ And that's it. Now we can call the method from our main method with a repeatDist
 ```java
 solveProblem(1 /*currentNum*/, numbers, visited, 0 /*repeatDistance*/);
 ```
-You can find the whole script [here](./code/Solution1.java). When we execute it (I use a java jdk with openjdk version "20.0.2" 2023-07-18), we get an output of:
+You can find the whole script [here (Solution1.java)](./code/Solution1.java). When we execute it (I use a java jdk with openjdk version "20.0.2" 2023-07-18), we get an output of:
 
 ![found_Xd](./../images/found_Xd.png)
 
@@ -164,16 +167,17 @@ Great. The first 32 hex digits of the puzzle flag. Don't fear `part2`! We alread
 
 Navigating back by entering `cd` and into the part2 folder:
 
-![part2](./../images/part2.png) </br>
+![part2](./../images/part2.png)
 
-Part2 consists of a [`README2`](./logs/README2.txt) and a puzzle folder. The still sorted `README2` contains many more values than our `README1` and when traversing through the folders you might notice nodes with many more folder possibilities than we had before (up to 19 possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 are still valid, just with the `README1` values exchanged with the `README2` values. This time the differences between the folder sequence numbers are $\pm$ powers of 5. The numbers in the `README2` are ranging from 1 to $9765625 = 5^{10}$, again, with holes in between. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definitely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 and -31 and a goal of again the largest number in our `README2`, 9765625. </br>
-That means we can again use our algorithm, just with a modified README, modified distances and a modified goal number!! You can try modifying [it](./code/Solution1.java) yourself, or just click [here](./code/Solution2.java) to get to the modified algorithm.
+Part2 consists of a [`README2`](./logs/README2.txt) and a puzzle folder. The still sorted `README2` contains many more values than our `README1` and when traversing through the folders you might notice nodes with many more folder possibilities than we had before (up to 19 possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 are still valid, just with the `README1` values exchanged with the `README2` values. This time the differences between the folder sequence numbers are $\pm$ powers of 5. The numbers in the `README2` are ranging from 1 to $9765625 = 5^{10}$, again, with holes in between. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definitely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 and -31 and a goal of again the largest number in our `README2`, 9765625.
+
+That means we can again use our algorithm, just with a modified README, modified distances and a modified goal number!! You can try modifying [it (Solution1.java)](./code/Solution1.java) yourself, or just click [here (Solution2.java)](./code/Solution2.java) to get to the modified algorithm.
 > **Important**
 > I copy-pasted the `Solution1.java` file and did some minor modifications. This is bad (*worst*) practice, don't do this at home.
-<details><summary>Open-Closed Principle</summary>
+<details><summary>Open-Closed Principle</summary></br>
 
 We could have used the [Open-Closed Principle (OCP)](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle) here which would end up in making the code max. pretty and us not having to modify the `solveProblem` method at all for various rule 2 modifications. I didn't do that as this is out of the scope of this Write-Up.
-</details>
+</details></br>
 
 We get following output.
 
