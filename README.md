@@ -48,6 +48,9 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 ## The End
 
 ![solved](images/solved.png)
+## Statistics
+
+For the curious ones, the overall official puzzle statistics, published in the [HackMIT live-stream](#see-also). You'll find them [here](./Statistics/README.md).
 
 ## Conclusion
 
@@ -58,7 +61,6 @@ Anything missing? Typos? Enhancement ideas? Something you want me to explain mor
 ## See also
 
 [Official HackMIT solutions live stream](https://www.youtube.com/watch?v=FxIAzJU4lYs) – I really recommend checking it out.
-
 ## License
 
 MIT License
