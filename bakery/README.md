@@ -1,4 +1,5 @@
-# Bakery – Stored XSS inside an image (file uploading vulnerability)
+# Bakery
+### ***Stored XSS inside an image (file uploading vulnerability).***
 
 ## First glance
 

@@ -1,4 +1,5 @@
-# Xd – Finding the right path in an n-dimensional folder cluster with holes (DFS + Backtracking)
+# Xd
+### ***Finding the right path in an n-dimensional folder cluster with holes (DFS + Backtracking).***
 ## First glance
 
 ![Xd](./../images/Xd.png)
@@ -31,7 +32,7 @@ Apparently the puzzle is divided into two parts, part1 and part2. We can already
 
 ![readme1](./../images/readme1.png)
 
-Oh, so part1 consists of a file called [`README1`](./logs/README1.txt) and of a directory called `puzzle`. The `README1` consists of a sequence of sorted numbers. Let's keep that in mind and explore the puzzle directory.
+Oh, so part1 consists of a file called [`README1 (README1.txt)`](./logs/README1.txt) and of a directory called `puzzle`. The `README1` consists of a sequence of sorted numbers. Let's keep that in mind and explore the puzzle directory.
 
 ![first_folders](./../images/first_folders.png)
 
@@ -96,7 +97,7 @@ Set<Integer> numbers = Arrays.stream(readMeContent.split("\\s+"))
         .map(Integer::parseInt)
         .collect(Collectors.toUnmodifiableSet());
 
-// visited numbers Set, a LinedHashSet, meaning it is a set but the numbers stay in their order
+// visited numbers Set, a LinkedHashSet, meaning it is a set but the numbers stay in their order
 Set<Integer> visited = new LinkedHashSet<>();
 ```
 We use following method header that keeps track of the current number (`currentNum`) in our `README1` sequence, the set of `README1` `numbers`, our already `visited` numbers and optionally the `repeatDistance` for rule 3, if we want to apply the respective distance twice:
@@ -169,7 +170,7 @@ Navigating back by entering `cd` and into the part2 folder:
 
 ![part2](./../images/part2.png)
 
-Part2 consists of a [`README2`](./logs/README2.txt) and a puzzle folder. The still sorted `README2` contains many more values than our `README1` and when traversing through the folders you might notice nodes with many more folder possibilities than we had before (up to 19 possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 are still valid, just with the `README1` values exchanged with the `README2` values. This time the differences between the folder sequence numbers are $\pm$ powers of 5. The numbers in the `README2` are ranging from 1 to $9765625 = 5^{10}$, again, with holes in between. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definitely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 and -31 and a goal of again the largest number in our `README2`, 9765625.
+Part2 consists of a [`README2 (README2.txt)`](./logs/README2.txt) and a puzzle folder. The still sorted `README2` contains many more values than our `README1` and when traversing through the folders you might notice nodes with many more folder possibilities than we had before (up to 19 possibilites per node). Upon closer inspection, it becomes clear that rules 1 & 3 are still valid, just with the `README1` values exchanged with the `README2` values. This time the differences between the folder sequence numbers are $\pm$ powers of 5. The numbers in the `README2` are ranging from 1 to $9765625 = 5^{10}$, again, with holes in between. This implies that only powers of 5 with a max exponent of 9 are allowed as distances. So, we have valid exponents of powers of 5 from 0 to 9 merged with each of those powers negated, i.e. all in all 20 possible distances (we calculated the 19 back then as 20 - 1, as the folder node you came from will definitely not appear again in the next folder node you reach). That means rule 2 persists too, where we allow just those power-of-5-distances instead of 1, -1, 31 and -31 and a goal of again the largest number in our `README2`, 9765625.
 
 That means we can again use our algorithm, just with a modified README, modified distances and a modified goal number!! You can try modifying [it (Solution1.java)](./code/Solution1.java) yourself, or just click [here (Solution2.java)](./code/Solution2.java) to get to the modified algorithm.
 > **Important**

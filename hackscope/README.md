@@ -1,4 +1,5 @@
-# Hackscope – Exploiting a JKU prefix whitelist JWT/SSRF authentication bypass vulnerability
+# Hackscope
+### ***Exploiting a JKU prefix whitelist JWT/SSRF authentication bypass vulnerability.***
 ## First glance
 
 ![hackscope](./../images/hackscope.png)

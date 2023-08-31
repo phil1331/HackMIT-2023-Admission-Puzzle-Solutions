@@ -1,4 +1,5 @@
-# The Entrance Puzzle – Decoding "woof-encoded" binary ASCII-codepoints
+# The Entrance Puzzle
+### ***Decoding "woof-encoded" binary ASCII-codepoints.***
 ## First glance
 
 ![FAQ_question](./../images/admission_puzzle_faq.png)
@@ -99,7 +100,7 @@ def solveProblem(str):
 yourBlob = "_PASTE_BLOB_HERE"
 solveProblem(yourBlob)
 ```
-You'll find the complete program [here (EntrancePuzzle.py)](./code/EntrancePuzzle.py) and additionally a [java oneliner (EntrancePuzzle.java)](./code/EntrancePuzzle.java) solution for fun. The not-decoded woof-blocks are located [here](./logs/chat_woofs.log).
+You'll find the complete program [here (EntrancePuzzle.py)](./code/EntrancePuzzle.py) and additionally a [java oneliner (EntrancePuzzle.java)](./code/EntrancePuzzle.java) solution for fun. The not-decoded woof-blocks are located [here (chat_woofs.log)](./logs/chat_woofs.log).
 After decoding and sending some more messages you'll get following decoded answers.
 ```text
 Oh no !!

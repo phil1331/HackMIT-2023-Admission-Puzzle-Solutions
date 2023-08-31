@@ -1,4 +1,5 @@
-# Vmhack – Finding and Exploiting self-generated code constraints in a RISC-V32 executable with XOR-decryption, [z3](https://z3prover.github.io/api/html/z3.html) and [capstone](https://github.com/capstone-engine/capstone)
+# Vmhack
+### ***Finding and Exploiting self-generated code constraints in a RISC-V32 executable with XOR-decryption, [z3](https://z3prover.github.io/api/html/z3.html) and [capstone](https://github.com/capstone-engine/capstone).***
 
 ## First glance
 
@@ -175,7 +176,7 @@ To copy all the bytes in the code section in an appropriate format, we'll use a 
 4. {Right Click on the highlighted area} > Copy Special > Byte String (No Spaces)
 5. Paste the bytes into a file.
 ```
-You can see the result [here](./logs/bytes.txt). Each 2 contiguous hex digits represent a byte. We can use this representation to decrypt the instructions. I did that with Java, you can find the program [here (XorDecryptor.java)](./code/XorDecryptor.java) where I just converted the `code` section bytes in `bytes.txt` to a format suitable for being pasted into a `bytes object` in python for capstone.
+You can see the result [here (bytes.txt)](./logs/bytes.txt). Each 2 contiguous hex digits represent a byte. We can use this representation to decrypt the instructions. I did that with Java, you can find the program [here (XorDecryptor.java)](./code/XorDecryptor.java) where I just converted the `code` section bytes in `bytes.txt` to a format suitable for being pasted into a `bytes object` in python for capstone.
 ```text
 Format:
 Each 32 bit instruction is represented like the following.
