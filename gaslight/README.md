@@ -1,5 +1,5 @@
 # Gaslight
-### ***Tricking Nate, an OpenAI-powered LLM***
+### ***Tricking Nate, an OpenAI-powered LLM.***
 
 ## First glance
 
