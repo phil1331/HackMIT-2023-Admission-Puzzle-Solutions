@@ -50,7 +50,7 @@ The first interesting thing you noticed after having visited the [endpoint](./gi
 ![solved](images/solved.png)
 ## Statistics
 
-For the curious ones, the overall official puzzle statistics, published in the [HackMIT live-stream](#see-also). You'll find them [here](./Statistics/README.md).
+For the curious ones, the overall official puzzle statistics, published in the [HackMIT live-stream](#see-also). You'll find them [here (Statistics.md)](./Statistics.md).
 
 ## Conclusion
 
