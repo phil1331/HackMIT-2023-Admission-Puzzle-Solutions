@@ -3,7 +3,7 @@ import string
 
 validChars = string.ascii_letters + string.digits + "_"
 
-# eachn character is only valid if alphanumerical or '_' character(s) appear
+# each character is only valid if it is an alphanumerical or a '_' character
 def isValid(pwItem):
     return Or([pwItem == ord(ch) for ch in validChars])
 
@@ -11,12 +11,11 @@ pw_length = 0x40
 pwComponents = ""
 s = Solver()
 
-# Creating array pw string for 
+# Creating array pw string for the BitVecs
 for i in range(pw_length):
     pwComponents += f"pw[{i}] "
 
-# for each character we create a bitvec that basically just represents a byte for z3, we just convert them to another format
-# renamed pw to pwBVs
+# we convert each character into a suitable format for z3 which is a BitVec that just represents a byte (pw is renamed to pwBVs)
 pwBVs = BitVecs(pwComponents.strip(), 8)
 
 for i in range(5, pw_length - 1):
